@@ -13,16 +13,7 @@ import Loader from './components/Loader';
 import './index.css';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3500);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Smooth scroll setup
@@ -46,14 +37,8 @@ function App() {
       }
     };
 
-    if (!loading) {
-      lenis();
-    }
-  }, [loading]);
-
-  if (loading) {
-    return <Loader />;
-  }
+    lenis();
+  }, []);
 
   return (
     <ThemeProvider>

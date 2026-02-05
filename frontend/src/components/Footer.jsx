@@ -136,7 +136,7 @@ const Footer = () => {
             className="dark:text-gray-400 text-neutral-700 text-sm text-center md:text-left"
           >
             © {new Date().getFullYear()} {personalInfo.name}. Made with{' '}
-            <FaHeart className="inline text-red-500 animate-pulse" /> using React & Three.js
+            <FaHeart className="inline text-red-500 animate-pulse" /> 
           </motion.p>
 
           <motion.div

@@ -45,20 +45,21 @@ const Publications = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ scale: 1.02, y: -5 }}
-              className="relative group"
+              className="relative group cursor-pointer"
+              onClick={() => cert.certificate && window.open(cert.certificate, '_blank')}
             >
               <div className="absolute inset-0 bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
               
-              <div className="relative glass-dark rounded-2xl p-8 backdrop-blur-xl">
+              <div className="relative bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-2xl p-8 backdrop-blur-xl">
                 {/* Icon Badge */}
                 <div className="absolute -top-6 left-8 w-12 h-12 bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-full flex items-center justify-center shadow-lg dark:shadow-primary-500/50">
-                  <FaAward className="text-white text-2xl" />
+                  <FaAward className="dark:text-white text-black text-2xl" />
                 </div>
 
                 {/* Content */}
                 <div className="pt-4">
                   <div className="flex items-start justify-between gap-4 mb-4">
-                    <h3 className="text-2xl font-bold text-white flex items-center gap-3 flex-1">
+                    <h3 className="text-2xl font-bold dark:text-white text-black flex items-center gap-3 flex-1">
                       <FaBook className="dark:text-primary-400 text-black flex-shrink-0" />
                       <span>{cert.title}</span>
                     </h3>
@@ -96,7 +97,7 @@ const Publications = () => {
                       >
                         →
                       </motion.div>
-                      <span>Research Publication</span>
+                      <span>{cert.certificate ? 'Click to View Certificate' : 'Research Publication'}</span>
                     </div>
                   </div>
                 </div>

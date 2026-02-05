@@ -61,11 +61,17 @@ const ProjectCard = ({ project, onClick }) => {
         <div className="absolute -inset-1 bg-black dark:bg-gradient-to-r dark:from-primary-500 dark:via-purple-500 dark:to-pink-500 rounded-2xl blur opacity-0 group-hover:opacity-75 transition duration-500" />
         
         {/* Card Content */}
-        <div className="relative glass-dark rounded-2xl overflow-hidden backdrop-blur-xl border border-white/10">
+        <div className="relative bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-2xl overflow-hidden backdrop-blur-xl h-[580px] flex flex-col">
           {/* Image Container */}
-          <div className="relative h-64 overflow-hidden bg-gradient-to-br from-primary-900/50 to-purple-900/50">
-            {/* Placeholder gradient as project image */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-600/30 to-purple-600/30" />
+          <div className="relative h-64 flex-shrink-0 overflow-hidden bg-neutral-100 dark:bg-gradient-to-br dark:from-primary-900/50 dark:to-purple-900/50">
+            {/* Project Image */}
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="absolute inset-0 w-full h-full object-contain bg-white dark:bg-transparent p-4"
+              loading="lazy"
+              style={{ imageRendering: 'high-quality' }}
+            />
             
             {/* Overlay on hover */}
             <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
@@ -80,17 +86,19 @@ const ProjectCard = ({ project, onClick }) => {
               >
                 <FaGithub size={24} />
               </motion.a>
-              <motion.a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, rotate: -5 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={(e) => e.stopPropagation()}
-                className="p-4 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all"
-              >
-                <FaExternalLinkAlt size={24} />
-              </motion.a>
+              {project.demo && (
+                <motion.a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="p-4 bg-white/10 backdrop-blur-sm rounded-full text-white hover:bg-white/20 transition-all"
+                >
+                  <FaExternalLinkAlt size={24} />
+                </motion.a>
+              )}
             </div>
 
             {/* Category Badge */}
@@ -102,20 +110,20 @@ const ProjectCard = ({ project, onClick }) => {
           </div>
 
           {/* Content */}
-          <div className="p-6">
-            <h3 className="text-xl font-bold dark:text-white text-black mb-3 dark:group-hover:text-primary-400 group-hover:text-neutral-900 transition-colors">
+          <div className="p-6 flex-1 flex flex-col">
+            <h3 className="text-xl font-bold dark:text-white text-black mb-3 dark:group-hover:text-primary-400 group-hover:text-neutral-900 transition-colors line-clamp-2 min-h-[56px]">
               {project.title}
             </h3>
-            <p className="dark:text-gray-400 text-neutral-700 mb-4 line-clamp-2">
+            <p className="dark:text-gray-400 text-neutral-700 mb-4 line-clamp-2 min-h-[48px]">
               {project.description}
             </p>
 
             {/* Technologies */}
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-4 min-h-[32px]">
               {project.technologies.slice(0, 4).map((tech, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 bg-neutral-800 dark:bg-primary-500/10 text-white dark:text-primary-300 text-xs rounded-full border border-neutral-700 dark:border-primary-500/20"
+                  className="px-3 py-1 bg-neutral-200 dark:bg-primary-500/10 text-black dark:text-primary-300 text-xs rounded-full border border-neutral-300 dark:border-primary-500/20"
                 >
                   {tech}
                 </span>
@@ -128,10 +136,10 @@ const ProjectCard = ({ project, onClick }) => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
+            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-neutral-200 dark:border-white/10 mt-auto">
               {Object.entries(project.stats).map(([key, value], index) => (
                 <div key={index} className="text-center">
-                  <div className="dark:text-primary-400 text-white font-bold text-sm">{value}</div>
+                  <div className="dark:text-primary-400 text-black font-bold text-sm">{value}</div>
                   <div className="dark:text-gray-500 text-neutral-600 text-xs capitalize">{key}</div>
                 </div>
               ))}
@@ -165,7 +173,7 @@ const ProjectModal = ({ project, onClose }) => {
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.9, opacity: 0 }}
         transition={{ type: 'spring', damping: 25 }}
-        className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto glass-dark rounded-2xl"
+        className="relative max-w-4xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-dark-900/95 border border-neutral-200 dark:border-white/10 rounded-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}

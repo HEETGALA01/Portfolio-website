@@ -56,7 +56,7 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'glass-dark dark:glass-dark bg-white/80 backdrop-blur-xl shadow-lg' : 'bg-transparent'
+          isScrolled ? 'bg-white/90 dark:bg-dark-900/90 backdrop-blur-xl shadow-lg' : 'bg-transparent'
         }`}
       >
         <div className="container mx-auto px-6 py-4">
@@ -66,7 +66,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2"
             >
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500">
                 {personalInfo.name.charAt(0)}
               </div>
               <span className="text-xl font-display font-bold dark:text-white text-black hidden sm:block">

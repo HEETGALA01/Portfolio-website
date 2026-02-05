@@ -104,7 +104,7 @@ const About = () => {
                 <div>
                   <div className="relative group">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-purple-500 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-300" />
-                    <div className="relative glass-dark rounded-2xl p-8 backdrop-blur-xl">
+                    <div className="relative bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-2xl p-8 backdrop-blur-xl">
                       <div className="aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-primary-600/20 to-purple-600/20 flex items-center justify-center">
                         <img 
                           src="/heetimage.jpg" 
@@ -124,7 +124,7 @@ const About = () => {
             className="about-card space-y-6"
           >
             <div>
-              <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+              <h3 className="text-2xl font-bold dark:text-white text-black mb-4 flex items-center gap-3">
                 <FaRocket className="dark:text-primary-400 text-black text-2xl" />
                 Nice to meet you!
               </h3>
@@ -162,7 +162,7 @@ const About = () => {
               className="stat-item relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-purple-500 rounded-xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
-              <div className="relative glass-dark rounded-xl p-6 text-center backdrop-blur-xl">
+              <div className="relative bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-xl p-6 text-center backdrop-blur-xl">
                 <div className="text-4xl font-bold dark:text-gradient-blue dark:bg-gradient-to-r dark:from-primary-400 dark:to-purple-400 dark:bg-clip-text dark:text-transparent text-black mb-2">
                   {stat.value}
                 </div>

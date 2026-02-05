@@ -104,9 +104,9 @@ const Hero = () => {
               sequence={[
                 'Full Stack Developer',
                 2000,
-                'React Specialist',
+                'MERN Specialist',
                 2000,
-                'UI/UX Enthusiast',
+                'Build IN Public',
                 2000,
                 'Problem Solver',
                 2000,
@@ -134,8 +134,8 @@ const Hero = () => {
             </button>
             
             <a
-              href={personalInfo.resume}
-              download
+              href="/Heet resume.pdf"
+              download="Heet_Gala_Resume.pdf"
               className="group relative px-8 py-4 bg-white dark:bg-white/10 border border-neutral-300 dark:border-white/20 dark:text-white text-neutral-900 rounded-lg font-semibold flex items-center gap-2 dark:hover:bg-white/10 hover:bg-neutral-100 transition-all duration-300 hover:scale-105 magnetic"
             >
               <FaDownload className="group-hover:animate-bounce" />

@@ -9,9 +9,9 @@ export const personalInfo = {
   avatar: "/avatar.jpg",
   resume: "/Heet resume.pdf",
   social: {
-    github: "https://github.com/heetgala",
-    linkedin: "https://linkedin.com/in/heetgala",
-    twitter: "https://twitter.com/heetgala",
+    github: "https://github.com/HEETGALA01",
+    linkedin: "https://www.linkedin.com/in/heet-gala001",
+    mail: "mailto:hgala5901@gmail.com",
     portfolio: "https://heetgala.vercel.app",
   }
 };
@@ -39,7 +39,7 @@ export const skills = {
         { name: "React Native", level: 85, icon: "FaReact" },
         { name: "JavaScript", level: 95, icon: "SiJavascript" },
         { name: "HTML5", level: 95, icon: "FaHtml5" },
-        { name: "CSS3", level: 95, icon: "FaCss3Alt" },
+        { name: "CSS", level: 95, icon: "FaCss3Alt" },
         { name: "Shopify", level: 88, icon: "FaShopify" },
         { name: "WordPress", level: 82, icon: "FaWordpress" },
       ]
@@ -53,6 +53,7 @@ export const skills = {
         { name: "SQL", level: 85, icon: "SiMysql" },
         { name: "REST APIs", level: 92, icon: "SiPostman" },
         { name: "Python", level: 88, icon: "FaPython" },
+        { name: "C Language", level: 80, icon: "SiC" },
       ]
     },
     {
@@ -65,7 +66,6 @@ export const skills = {
         { name: "Hostinger", level: 85, icon: "FaServer" },
         { name: "TensorFlow", level: 80, icon: "SiTensorflow" },
         { name: "Streamlit", level: 82, icon: "SiStreamlit" },
-        { name: "C Language", level: 80, icon: "SiC" },
       ]
     }
   ]
@@ -154,7 +154,7 @@ export const projects = [
     id: 1,
     title: "Real Estate Chatbot - Nine Reflex",
     description: "Production-ready real estate chatbot deployed for Nine Reflex client to handle property inquiries, lead generation, and customer engagement with intelligent conversational flows.",
-    image: "/projects/chatbot.jpg",
+    image: "/ninerefex .png",
     category: "Full Stack",
     technologies: ["React", "Node.js", "Express.js", "MongoDB", "Render", "Hostinger"],
     features: [
@@ -164,8 +164,8 @@ export const projects = [
       "Deployed backend services on Render for scalability",
       "Hosted production frontend on Hostinger for optimal performance"
     ],
-    github: "https://github.com/heetgala/real-estate-chatbot",
-    demo: "https://ninereflex.com",
+    github: "https://github.com/HEETGALA01/nine-reflex",
+    demo: "https://ninereflex.com/",
     stats: {
       status: "Live",
       client: "Nine Reflex",
@@ -176,7 +176,7 @@ export const projects = [
     id: 2,
     title: "Customized E-Commerce Website - Oluxury India",
     description: "Fully customized Shopify-based e-commerce platform for Oluxury India with enhanced customer engagement features and optimized performance.",
-    image: "/projects/ecommerce.jpg",
+    image: "/oluxury.png",
     category: "Full Stack",
     technologies: ["Shopify", "JavaScript", "CSS", "WhatsApp API", "SEO Tools"],
     features: [
@@ -187,7 +187,7 @@ export const projects = [
       "SEO optimization to enhance search engine visibility and conversions"
     ],
     github: "https://github.com/heetgala/oluxury-ecommerce",
-    demo: "https://oluxuryindia.com",
+    demo: "https://oluxuryindia.com/",
     stats: {
       status: "Live",
       client: "Oluxury India",
@@ -198,7 +198,7 @@ export const projects = [
     id: 3,
     title: "Import-Export ERP System",
     description: "Comprehensive ERP system designed for the import-export industry to manage product records, transactions, and automate workflow processes.",
-    image: "/projects/erp.jpg",
+    image: "/importx.png",
     category: "Full Stack",
     technologies: ["React", "JavaScript", "HTML", "CSS", "Node.js"],
     features: [
@@ -208,8 +208,8 @@ export const projects = [
       "Scalable frontend architecture for future enhancements",
       "User-friendly interface for easy navigation and data entry"
     ],
-    github: "https://github.com/heetgala/import-export-erp",
-    demo: "https://github.com/heetgala/import-export-erp",
+    github: "https://github.com/HEETGALA01/import-export-ERP-system",
+    demo: "https://importx.netlify.app/",
     stats: {
       type: "Demo",
       modules: "5+",
@@ -220,7 +220,7 @@ export const projects = [
     id: 4,
     title: "Real-Time Stock Market Prediction System",
     description: "LSTM-based stock price prediction system leveraging deep learning to forecast market trends with interactive real-time visualization dashboard.",
-    image: "/projects/stock.jpg",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop&q=80",
     category: "AI/ML",
     technologies: ["Python", "TensorFlow", "LSTM", "Streamlit", "Pandas", "NumPy"],
     features: [
@@ -230,8 +230,7 @@ export const projects = [
       "Interactive dashboard for user-friendly market insights",
       "Continuous model training for improved accuracy"
     ],
-    github: "https://github.com/heetgala/stock-prediction",
-    demo: "https://github.com/heetgala/stock-prediction",
+    github: "https://github.com/HEETGALA01/REAL-TIME_STOCK_PREDICTION_APP",
     stats: {
       accuracy: "85%+",
       model: "LSTM",
@@ -242,7 +241,7 @@ export const projects = [
     id: 5,
     title: "Medical ERP System",
     description: "Enterprise Resource Planning system developed for the medical industry to manage patient records, appointments, inventory, and billing operations.",
-    image: "/projects/medical-erp.jpg",
+    image: "/medicalerp.png",
     category: "Full Stack",
     technologies: ["React", "JavaScript", "HTML", "CSS", "Express.js"],
     features: [
@@ -252,8 +251,8 @@ export const projects = [
       "Billing and invoice generation",
       "Role-based access control for staff and administrators"
     ],
-    github: "https://github.com/heetgala/medical-erp",
-    demo: "https://github.com/heetgala/medical-erp",
+    github: "https://github.com/HEETGALA01/medical-erp",
+    demo: "https://medicalsystemerp.netlify.app/",
     stats: {
       industry: "Healthcare",
       modules: "6+",
@@ -264,7 +263,7 @@ export const projects = [
     id: 6,
     title: "AI-Powered Security Camera System",
     description: "Research project on real-time accident and suspicious activity detection using computer vision and deep learning, published in international journal.",
-    image: "/projects/security.jpg",
+    image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&h=600&fit=crop&q=80",
     category: "AI/ML",
     technologies: ["Python", "OpenCV", "TensorFlow", "YOLO", "Deep Learning"],
     features: [
@@ -274,8 +273,7 @@ export const projects = [
       "Alert notification system for security personnel",
       "Published research in International Journal (Feb 2024)"
     ],
-    github: "https://github.com/heetgala/ai-security-camera",
-    demo: "https://github.com/heetgala/ai-security-camera",
+    github: "https://github.com/HEETGALA01/AI-Powered-Security-Camera-with-YOLO-NAS",
     stats: {
       publication: "Published",
       journal: "IJSREM",
@@ -291,7 +289,8 @@ export const certifications = [
     issuer: "International Journal of Scientific Research in Engineering and Management (IJSREM)",
     date: "February 2024",
     credentialId: "Published Research Paper",
-    description: "Research on Real-Time Accident and Suspicious Activity Detection using AI and Computer Vision"
+    description: "Research on Real-Time Accident and Suspicious Activity Detection using AI and Computer Vision",
+    certificate: "/Publication Certificate.pdf"
   }
 ];
 

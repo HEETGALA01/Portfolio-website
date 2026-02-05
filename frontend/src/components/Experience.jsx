@@ -11,24 +11,6 @@ const Experience = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from('.experience-card', {
-        scrollTrigger: {
-          trigger: '.experience-section',
-          start: 'top 80%',
-        },
-        opacity: 0,
-        y: 100,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out'
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       ref={sectionRef}
@@ -84,11 +66,11 @@ const Experience = () => {
                 >
                   <div className="absolute inset-0 bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
                   
-                  <div className="relative glass-dark rounded-2xl p-6 md:p-8 backdrop-blur-xl">
+                  <div className="relative bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-2xl p-6 md:p-8 backdrop-blur-xl">
                     {/* Header */}
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
                       <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-white mb-2 flex items-center gap-3">
+                        <h3 className="text-2xl font-bold dark:text-white text-black mb-2 flex items-center gap-3">
                           <FaBriefcase className="dark:text-primary-400 text-black" />
                           {exp.title}
                         </h3>
@@ -115,7 +97,7 @@ const Experience = () => {
 
                     {/* Achievements */}
                     <div className="space-y-3 mb-6">
-                      <h4 className="text-white font-semibold flex items-center gap-2">
+                      <h4 className="dark:text-white text-black font-semibold flex items-center gap-2">
                         <FaCheckCircle className="dark:text-primary-400 text-black" />
                         Key Achievements:
                       </h4>

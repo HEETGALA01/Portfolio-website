@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial } from '@react-three/drei';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaGlobeAmericas } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const sectionRef = useRef(null);
@@ -30,17 +31,36 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    // EmailJS Configuration
+    const serviceId = 'service_heetportfolio';
+    const templateId = 'template_contactform';
+    const publicKey = 'YOUR_PUBLIC_KEY_HERE';
+    
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_name: 'Heet Gala',
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       setFormStatus({
         type: 'success',
         message: 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!'
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setFormStatus({
+        type: 'error',
+        message: 'Oops! Something went wrong. Please try again or email me directly at ' + personalInfo.email
+      });
+    } finally {
       setIsSubmitting(false);
-      
       setTimeout(() => setFormStatus({ type: '', message: '' }), 5000);
-    }, 2000);
+    }
   };
 
   const contactInfo = [
@@ -145,7 +165,7 @@ const Contact = () => {
                     {info.href ? (
                       <a
                         href={info.href}
-                        className="flex items-center gap-4 p-4 glass-dark rounded-xl hover:bg-white/10 transition-all duration-300"
+                        className="flex items-center gap-4 p-4 bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-xl hover:bg-neutral-50 dark:hover:bg-white/10 transition-all duration-300"
                       >
                         <div className="p-3 bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-lg group-hover:scale-110 transition-transform duration-300">
                           <info.icon className="text-white" size={24} />
@@ -156,7 +176,7 @@ const Contact = () => {
                         </div>
                       </a>
                     ) : (
-                      <div className="flex items-center gap-4 p-4 glass-dark rounded-xl">
+                      <div className="flex items-center gap-4 p-4 bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-xl">
                         <div className="p-3 bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-lg">
                           <info.icon className="text-white" size={24} />
                         </div>
@@ -186,7 +206,7 @@ const Contact = () => {
                     transition={{ delay: 0.5 + index * 0.1 }}
                     whileHover={{ scale: 1.2, rotate: 10 }}
                     whileTap={{ scale: 0.9 }}
-                    className="p-4 glass-dark rounded-xl dark:text-gray-300 text-neutral-900 hover:text-black dark:hover:text-primary-400 hover:bg-white/10 transition-all duration-300 hover-glow"
+                    className="p-4 bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-xl dark:text-gray-300 text-neutral-900 hover:text-black dark:hover:text-primary-400 hover:bg-neutral-50 dark:hover:bg-white/10 transition-all duration-300 hover-glow"
                     aria-label={social.label}
                   >
                     <social.icon size={24} />
@@ -200,7 +220,7 @@ const Contact = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.7 }}
-              className="relative p-8 glass-dark rounded-2xl overflow-hidden"
+              className="relative p-8 bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-2xl overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-purple-500/10" />
               <div className="relative text-center">
@@ -241,7 +261,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-lg text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300"
                   placeholder="John Doe"
                 />
               </motion.div>
@@ -262,7 +282,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-lg text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300"
                   placeholder="john@example.com"
                 />
               </motion.div>
@@ -283,7 +303,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-white dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-lg text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300"
                   placeholder="Project Inquiry"
                 />
               </motion.div>
@@ -304,7 +324,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="5"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300 resize-none"
+                  className="w-full px-4 py-3 bg-white dark:bg-white/5 border border-neutral-300 dark:border-white/10 rounded-lg text-black dark:text-white placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-primary-500 focus:ring-2 focus:ring-black/50 dark:focus:ring-primary-500/50 transition-all duration-300 resize-none"
                   placeholder="Tell me about your project..."
                 />
               </motion.div>
