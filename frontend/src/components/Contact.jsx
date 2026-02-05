@@ -10,6 +10,11 @@ const Contact = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
   
+  // Initialize EmailJS
+  React.useEffect(() => {
+    emailjs.init('GWc4LdeDY9AY0HOTL');
+  }, []);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,34 +37,36 @@ const Contact = () => {
     setIsSubmitting(true);
     
     // EmailJS Configuration
-    const serviceId = 'service_heetportfolio';
-    const templateId = 'template_contactform';
-    const publicKey = 'YOUR_PUBLIC_KEY_HERE';
+    const serviceId = 'service_if9wckh';
+    const templateId = 'template_eggcs85';
     
     const templateParams = {
       from_name: formData.name,
       from_email: formData.email,
       subject: formData.subject,
       message: formData.message,
-      to_name: 'Heet Gala',
     };
 
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Sending email with params:', templateParams);
+      const result = await emailjs.send(serviceId, templateId, templateParams);
+      console.log('Email sent successfully:', result);
       setFormStatus({
         type: 'success',
         message: 'Thank you! Your message has been sent successfully. I\'ll get back to you soon!'
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('EmailJS Error Full Details:', error);
+      console.error('Error text:', error.text);
+      console.error('Error status:', error.status);
       setFormStatus({
         type: 'error',
-        message: 'Oops! Something went wrong. Please try again or email me directly at ' + personalInfo.email
+        message: 'Error: ' + (error.text || error.message || 'Unknown error. Check console for details.')
       });
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setFormStatus({ type: '', message: '' }), 5000);
+      setTimeout(() => setFormStatus({ type: '', message: '' }), 8000);
     }
   };
 
