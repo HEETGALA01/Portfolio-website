@@ -17,11 +17,7 @@ export const personalInfo = {
 };
 
 export const about = {
-  description: `I'm a Full Stack Developer specializing in the MERN stack with hands-on experience building scalable web applications, AI-powered systems, and enterprise solutions. Currently pursuing my Bachelor's in Artificial Intelligence and Data Science at K.J. Somaiya College of Engineering, Mumbai.
-    
-    My journey spans from developing production-ready real estate chatbots to building optimized e-commerce platforms on Shopify, to creating comprehensive ERP systems. I've had the privilege of working with diverse clients, delivering solutions that directly impact business operations and customer engagement.
-    
-    What drives me is the intersection of artificial intelligence and web development - leveraging modern technologies to create intelligent systems that solve real problems. Beyond coding, I'm passionate about staying at the forefront of technology trends and contributing to research.`,
+  description: `I am a Full Stack Developer specializing in the MERN stack, with hands-on experience in building scalable web applications, AI-powered systems, and enterprise-grade solutions. My work ranges from developing production-ready real estate chatbots to designing optimized e-commerce platforms on Shopify and creating comprehensive ERP systems. I have collaborated with diverse clients, delivering impactful solutions that enhance business operations and improve customer engagement. I am driven by the intersection of artificial intelligence and web development, where I leverage modern technologies to build intelligent systems that solve real-world problems. Beyond development, I am deeply invested in staying ahead of emerging tech trends and contributing to innovation in the field.`,
   stats: [
     { label: "Live Projects", value: "5+" },
     { label: "Client Deployments", value: "3" },
