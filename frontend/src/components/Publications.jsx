@@ -52,8 +52,8 @@ const Publications = () => {
               
               <div className="relative bg-white dark:bg-dark-900/80 border border-neutral-200 dark:border-white/10 rounded-2xl p-8 backdrop-blur-xl">
                 {/* Icon Badge */}
-                <div className="absolute -top-6 left-8 w-12 h-12 bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-full flex items-center justify-center shadow-lg dark:shadow-primary-500/50">
-                  <FaAward className="dark:text-white text-black text-2xl" />
+                <div className="absolute -top-6 left-8 w-12 h-12 bg-white dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-full flex items-center justify-center shadow-lg dark:shadow-primary-500/50 border border-neutral-200">
+                  <FaAward className="dark:text-white text-primary-600 text-2xl" />
                 </div>
 
                 {/* Content */}

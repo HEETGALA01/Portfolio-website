@@ -148,9 +148,9 @@ const Skills = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="space-y-2"
         >
-          <MarqueeRow skills={skillsData.frontend} speed={10} isDark={isDark} />
-          <MarqueeRow skills={skillsData.backend} speed={12} isDark={isDark} />
-          <MarqueeRow skills={skillsData.tools} speed={14} isDark={isDark} />
+          <MarqueeRow skills={skillsData.frontend} speed={6} isDark={isDark} />
+          <MarqueeRow skills={skillsData.backend} speed={10} isDark={isDark} />
+          <MarqueeRow skills={skillsData.tools} speed={12} isDark={isDark} />
         </motion.div>
       </div>
     </section>

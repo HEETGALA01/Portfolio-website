@@ -16,14 +16,20 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Smooth scroll setup
+    // Smooth scroll setup with optimized settings
     const lenis = async () => {
       try {
         const Lenis = (await import('lenis')).default;
         const lenisInstance = new Lenis({
-          duration: 1.2,
+          duration: 1.5,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
           smoothWheel: true,
+          wheelMultiplier: 1,
+          smoothTouch: false,
+          touchMultiplier: 2,
+          infinite: false,
         });
 
         function raf(time) {
@@ -32,12 +38,20 @@ function App() {
         }
 
         requestAnimationFrame(raf);
+
+        // Cleanup function
+        return () => {
+          lenisInstance.destroy();
+        };
       } catch (error) {
         console.log('Lenis smooth scroll not loaded:', error);
       }
     };
 
-    lenis();
+    const cleanup = lenis();
+    return () => {
+      if (cleanup) cleanup.then(fn => fn && fn());
+    };
   }, []);
 
   return (

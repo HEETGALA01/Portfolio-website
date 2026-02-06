@@ -45,9 +45,25 @@ const Experience = () => {
           {experience.map((exp, index) => (
             <motion.div
               key={exp.id}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              initial={{ 
+                opacity: 0, 
+                y: -100,
+                x: index % 2 === 0 ? -50 : 50,
+                rotate: index % 2 === 0 ? -10 : 10
+              }}
+              animate={isInView ? { 
+                opacity: 1, 
+                y: 0,
+                x: 0,
+                rotate: 0
+              } : {}}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.2,
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }}
               className="experience-card mb-12 relative"
             >
               {/* Timeline Line */}
@@ -61,7 +77,16 @@ const Experience = () => {
               {/* Content Card */}
               <div className={`md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:mr-auto' : 'md:ml-auto'}`}>
                 <motion.div
-                  whileHover={{ scale: 1.02, y: -5 }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -8,
+                    rotate: index % 2 === 0 ? -2 : 2
+                  }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20
+                  }}
                   className="relative group"
                 >
                   <div className="absolute inset-0 bg-black dark:bg-gradient-to-br dark:from-primary-500 dark:to-purple-500 rounded-2xl blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300" />
